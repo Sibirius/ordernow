@@ -5,12 +5,25 @@ using UnityEngine;
 public class AppScript : MonoBehaviour {
 
 	public Restaurant[] restaurants = {
-		new Restaurant("Marios", "Pizza"), new Restaurant("Luigis", "More pizza")
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Marios", "Pizza"), 
+		new Restaurant("Luigis", "More pizza")
 	};
 
 	public Friend[] friends = {
 		new Friend("Ross"), new Friend("Pikachu"), new Friend("Barb")
-	}
+	};
 
 	public GameObject restaurantButton;
 	public GameObject restaurantButtonsContainer;
