@@ -10,13 +10,10 @@ public class RestaurantButtonScript : MonoBehaviour {
 	public string restaurantName;
 	public string restaurantDescription;
 
-	private GameObject profile;
-
 	private Text buttonText;
 
 	// Use this for initialization
 	void Start () {
-		profile = GameObject.Find ("RestaurantProfile");
 	}
 	
 	// Update is called once per frame
@@ -25,10 +22,7 @@ public class RestaurantButtonScript : MonoBehaviour {
 	}
 
 	public void Clicked () {
-		Debug.Log (restaurant);
-		profile.GetComponent<RestaurantProfileScript> ().restaurant = restaurant;
-		profile.SetActive (true);
-	
+        AppScript.instance.showProfile(restaurant);
 	}
 
 	public void SetRestaurant(Restaurant restaurant) {

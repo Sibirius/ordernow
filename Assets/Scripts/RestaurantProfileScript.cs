@@ -20,19 +20,21 @@ public class RestaurantProfileScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (restaurant != null) {
-			restaurantNameLabel.text = restaurant.name;
-			restaurantDescriptionLabel.text = restaurant.description;
-		} else {
-			restaurantNameLabel.text = "ooops";
-		}
+
 	}
 
-	public void OrderButtonPressed() {
+    public void SetRestaurant(Restaurant restaurant)
+    {
+        this.restaurant = restaurant;
+        restaurantNameLabel.text = restaurant.name;
+        restaurantDescriptionLabel.text = restaurant.description;
+    }
+
+    public void OrderButtonPressed() {
 		
 	}
 
 	public void BackButtonPressed() {
-		gameObject.SetActive(false);
+        Destroy(gameObject);
 	}
 }

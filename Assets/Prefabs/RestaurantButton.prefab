@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114284263488899692}
   - component: {fileID: 114538864215481110}
   m_Layer: 5
-  m_Name: RestaurantName
+  m_Name: RestaurantButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

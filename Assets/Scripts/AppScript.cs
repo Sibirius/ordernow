@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AppScript : MonoBehaviour {
 
+    public static AppScript instance;
+
 	public Restaurant[] restaurants = {
 		new Restaurant("Marios", "Pizza"), 
 		new Restaurant("Marios", "Pizza"), 
@@ -27,9 +29,11 @@ public class AppScript : MonoBehaviour {
 
 	public GameObject restaurantButton;
 	public GameObject restaurantButtonsContainer;
+    public GameObject profilePage;
 
 	// Use this for initialization
 	void Start () {
+        instance = this;
 		foreach (Restaurant restaurant in restaurants) {
 			GameObject newButton = Instantiate (restaurantButton, restaurantButtonsContainer.transform) as GameObject;
 			RestaurantButtonScript newScript = newButton.GetComponent<RestaurantButtonScript> ();
@@ -46,6 +50,10 @@ public class AppScript : MonoBehaviour {
 		// calculate how satisfied your friends are
 
 	}
+
+    public void showProfile(Restaurant restaurant) {
+        Instantiate(profilePage, GameObject.Find("PhoneOverlay").transform);
+    }
 }
 
 public class Restaurant {
