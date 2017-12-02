@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224927869529669064}
   - component: {fileID: 222788916188123546}
   - component: {fileID: 114082586552496854}
+  - component: {fileID: 114189828995146004}
   m_Layer: 0
   m_Name: App
   m_TagString: Untagged
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_Text: 'TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST
     TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST
     TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST '
+--- !u!114 &114189828995146004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231871887199096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644e90f516cf848ffa790a83683085df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restaurantButton: {fileID: 0}
+  restaurantButtonsContainer: {fileID: 0}
 --- !u!222 &222788916188123546
 CanvasRenderer:
   m_ObjectHideFlags: 1
