@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 645658619}
   - component: {fileID: 645658618}
   m_Layer: 5
-  m_Name: Handy Overlay
+  m_Name: PhoneOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
