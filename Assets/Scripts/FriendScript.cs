@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FriendScript : MonoBehaviour {
 
@@ -15,7 +16,6 @@ public class FriendScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        
 		
 	}
 

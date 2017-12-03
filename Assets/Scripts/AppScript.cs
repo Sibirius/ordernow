@@ -19,26 +19,26 @@ public class AppScript : MonoBehaviour {
 
     private Restaurant[] restaurants;
 
-	private Friend[] friends = {
-		new Friend("Ross"), new Friend("Pikachu"), new Friend("Barb")
-	};
+    private List<Friend> friends;
 
     public float failTimer;
     public int failAmount;
 
+    public int numberOfFriends;
     public int pizzasPerRestaurant;
     public int numberOfRestaurants;
 
     public int satisfiedBonus;
     public int dissatisfiedMalus;
 
-    public GameObject friendPrefab;
+    public GameObject[] friendPrefabs;
 
     private PhoneManagerScript phoneManager;
 
 	// Use this for initialization
 	void Start () {
 
+        friends = createFriends(numberOfFriends);
         restaurants = createRestaurantsForFriends(friends);
 
         phoneManager = GetComponent<PhoneManagerScript>();
@@ -57,7 +57,6 @@ public class AppScript : MonoBehaviour {
         foreach(Friend friend in friends)
         {
             friend.satisfaction -= failAmount;
-            Debug.Log(friend.name + " is at " + friend.satisfaction);
         }
     }
 	
@@ -74,7 +73,22 @@ public class AppScript : MonoBehaviour {
         }
     }
 
-    private Restaurant[] createRestaurantsForFriends(Friend[] friends)
+    private List<Friend> createFriends(int numberOfFriends)
+    {
+        List<Friend> friends = new List<Friend>();
+        for (int i = 0; i < numberOfFriends; i++)
+        {
+            Vector3 position = new Vector3(Random.Range(-0.7f, 1.5f), 0.0f, Random.Range(-0.7f, -2.0f));
+            Quaternion rotation = Quaternion.Euler(0.0f, Random.Range(150.0f, 210.0f), 0.0f);
+            GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
+            GameObject gameObject = Instantiate(prefab, position, rotation);
+            Friend friend = new Friend(gameObject);
+            friends.Add(friend);
+        }
+        return friends;
+    } 
+
+    private Restaurant[] createRestaurantsForFriends(List<Friend> friends)
     {
         List<Restaurant> restaurants = new List<Restaurant>();
         for (int i = 0; i < numberOfRestaurants; i++)
@@ -110,7 +124,6 @@ public class AppScript : MonoBehaviour {
             }
             if (satisfied)
             {
-                Debug.Log(friend.name + " is satisfied");
                 friend.satisfaction += satisfiedBonus;
             }
             else
@@ -143,15 +156,14 @@ public class Restaurant {
 }
 
 public class Friend {
-	public string name;
 	public int satisfaction;
     public Ingredient requirement;
+    public GameObject gameObject;
 
-	public Friend(string name) {
-		this.name = name;
+	public Friend(GameObject gameObject) {
+        this.gameObject = gameObject;
 		this.satisfaction = 100;
         this.requirement = Utils.randomIngredient();
-        Debug.Log(name+" likes "+requirement);
 	}
 }
 
