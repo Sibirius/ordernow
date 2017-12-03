@@ -9,14 +9,6 @@ public class AppScript : MonoBehaviour {
         "Marios", "Luigis", "Warios", "WaLuigis"
     };
 
-    private static Pizza[] availablePizzas =
-    {
-        new Pizza("Pizza Tuna"),
-        new Pizza("Pizza Cheese"),
-        new Pizza("Pizza Peperoni"),
-    };
-
-
     private Restaurant[] restaurants;
 
     private List<Friend> friends;
@@ -35,14 +27,16 @@ public class AppScript : MonoBehaviour {
     public Texture[] ingredientTextures;
 
     private List<Ingredient> ingredients;
+    private List<Pizza> pizzas;
 
     private PhoneManagerScript phoneManager;
 
 	// Use this for initialization
 	void Start () {
 
-        ingredients = createIngredients(ingredientTextures);
-        friends = createFriends(numberOfFriends);
+        ingredients = createIngredients();
+        pizzas = createPizzas();
+        friends = createFriends();
         restaurants = createRestaurantsForFriends(friends);
 
         phoneManager = GetComponent<PhoneManagerScript>();
@@ -72,10 +66,10 @@ public class AppScript : MonoBehaviour {
         }
     }
 
-    private List<Ingredient> createIngredients(Texture[] textures)
+    private List<Ingredient> createIngredients()
     {
         ingredients = new List<Ingredient>();
-        foreach (Texture texture in textures)
+        foreach (Texture texture in ingredientTextures)
         {
             Ingredient ingredient = new Ingredient();
             ingredient.name = texture.name;
@@ -85,7 +79,30 @@ public class AppScript : MonoBehaviour {
         return ingredients;
     }
 
-    private List<Friend> createFriends(int numberOfFriends)
+    private List<Pizza> createPizzas()
+    {
+        List<Pizza> pizzas = new List<Pizza>();
+        pizzas.Add(createPizza("Pizza Spinach", "pizza_spinach", new List<string> { "spinach" }));
+        pizzas.Add(createPizza("Pizza Peperoni", "pizza_peperoni", new List<string> { "peperoni" }));
+
+        return pizzas;
+    }
+
+    private Pizza createPizza(string name, string textureName, List<string> ingredientNames)
+    {
+        Pizza pizza = new Pizza("name");
+        pizza.texture = Resources.Load(textureName) as Texture;
+        foreach (Ingredient ingredient in ingredients)
+        {
+            if (ingredientNames.Contains(ingredient.name))
+            {
+                pizza.ingredients.Add(ingredient);
+            }
+        }
+        return pizza;
+    }
+
+    private List<Friend> createFriends()
     {
         List<Friend> friends = new List<Friend>();
         for (int i = 0; i < numberOfFriends; i++)
@@ -111,7 +128,7 @@ public class AppScript : MonoBehaviour {
             List<Pizza> pizzas = new List<Pizza>();
             for (int p = 0; p < pizzasPerRestaurant; p++)
             {
-                Pizza pizza = availablePizzas[Random.Range(0,availablePizzas.Length)];
+                Pizza pizza = this.pizzas[Random.Range(0,this.pizzas.Count)];
                 pizzas.Add(pizza);
             }
             string name = restaurantNames[Random.Range(0, restaurantNames.Length)];
@@ -179,12 +196,13 @@ public class Friend {
 public class Pizza
 {
     public string name;
+    public Texture texture;
     public List<Ingredient> ingredients;
 
     public Pizza(string name)
     {
         this.name = name;
-        //this.ingredients = ingredients;
+        this.ingredients = new List<Ingredient>();
     }
 
 }
