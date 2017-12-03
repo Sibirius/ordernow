@@ -11,9 +11,9 @@ public class AppScript : MonoBehaviour {
 
     private static Pizza[] availablePizzas =
     {
-        new Pizza("Pizza Tuna", new List<Ingredient> {Ingredient.Tuna}),
-        new Pizza("Pizza Cheese", new List<Ingredient> {Ingredient.Cheese}),
-        new Pizza("Pizza Peperoni", new List<Ingredient> {Ingredient.Peperoni}),
+        new Pizza("Pizza Tuna"),
+        new Pizza("Pizza Cheese"),
+        new Pizza("Pizza Peperoni"),
     };
 
 
@@ -32,22 +32,21 @@ public class AppScript : MonoBehaviour {
     public int dissatisfiedMalus;
 
     public GameObject[] friendPrefabs;
+    public Texture[] ingredientTextures;
+
+    private List<Ingredient> ingredients;
 
     private PhoneManagerScript phoneManager;
 
 	// Use this for initialization
 	void Start () {
 
+        ingredients = createIngredients(ingredientTextures);
         friends = createFriends(numberOfFriends);
         restaurants = createRestaurantsForFriends(friends);
 
         phoneManager = GetComponent<PhoneManagerScript>();
         phoneManager.showRestaurants(restaurants);
-
-        foreach (Friend friend in friends) {
-            //TODO position friends correctly in the scene
-            //GameObject newFriend = Instantiate(friendPrefab);
-        }
 
         InvokeRepeating("ReduceFriendSatisfaction", failTimer, failTimer);
 	}
@@ -56,21 +55,34 @@ public class AppScript : MonoBehaviour {
     {
         foreach(Friend friend in friends)
         {
-            friend.satisfaction -= failAmount;
+            alterFriendSatisfaction(friend, -failAmount);
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-		// decrease satisfaction progressively
-	}
 
-    private void alterFriendSatifaction(Friend friend, int change)
+    }
+
+    private void alterFriendSatisfaction(Friend friend, int change)
     {
         friend.satisfaction = Mathf.Clamp(friend.satisfaction + change, 0, 100);
         if (friend.satisfaction == 0) {
             //TODO lose the game
         }
+    }
+
+    private List<Ingredient> createIngredients(Texture[] textures)
+    {
+        ingredients = new List<Ingredient>();
+        foreach (Texture texture in textures)
+        {
+            Ingredient ingredient = new Ingredient();
+            ingredient.name = texture.name;
+            ingredient.texture = texture;
+            ingredients.Add(ingredient);
+        }
+        return ingredients;
     }
 
     private List<Friend> createFriends(int numberOfFriends)
@@ -80,9 +92,12 @@ public class AppScript : MonoBehaviour {
         {
             Vector3 position = new Vector3(Random.Range(-0.7f, 1.5f), 0.0f, Random.Range(-0.7f, -2.0f));
             Quaternion rotation = Quaternion.Euler(0.0f, Random.Range(150.0f, 210.0f), 0.0f);
-            GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
+            //GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
+            GameObject prefab = friendPrefabs[0];
             GameObject gameObject = Instantiate(prefab, position, rotation);
-            Friend friend = new Friend(gameObject);
+            Friend friend = new Friend();
+            friend.requirement = ingredients[Random.Range(0,ingredients.Count)];
+            gameObject.GetComponent<FriendScript>().setFriend(friend);
             friends.Add(friend);
         }
         return friends;
@@ -108,9 +123,6 @@ public class AppScript : MonoBehaviour {
     }
 
 	public void OrderAtRestaurant(Restaurant restaurant) {
-        // calculate how satisfied your friends are
-
-        Debug.Log("Ordering at " + restaurant.name);
 
         foreach (Friend friend in friends)
         {
@@ -158,12 +170,9 @@ public class Restaurant {
 public class Friend {
 	public int satisfaction;
     public Ingredient requirement;
-    public GameObject gameObject;
 
-	public Friend(GameObject gameObject) {
-        this.gameObject = gameObject;
+	public Friend() {
 		this.satisfaction = 100;
-        this.requirement = Utils.randomIngredient();
 	}
 }
 
@@ -172,37 +181,22 @@ public class Pizza
     public string name;
     public List<Ingredient> ingredients;
 
-    public Pizza(string name, List<Ingredient> ingredients)
+    public Pizza(string name)
     {
         this.name = name;
-        this.ingredients = ingredients;
+        //this.ingredients = ingredients;
     }
 
 }
 
-public enum Ingredient
+public class Ingredient
 {
-    Peperoni, Tuna, Cheese
+    public string name;
+    public Texture texture;
 }
 
 public class Utils
 {
-
-    private static System.Random random;
-
-    private static System.Random getRandom()
-    {
-        if (random == null) {
-            random = new System.Random();
-        }
-        return random;
-    }
-
-    public static Ingredient randomIngredient()
-    {
-        System.Array ingredients = System.Enum.GetValues(typeof(Ingredient));
-        return (Ingredient)ingredients.GetValue(getRandom().Next(ingredients.Length));
-    }
 
     public static AppScript getGameManager()
     {

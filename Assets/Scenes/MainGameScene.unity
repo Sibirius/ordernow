@@ -561,8 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644e90f516cf848ffa790a83683085df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  failTimer: 5
-  failAmount: 1
+  failTimer: 1
+  failAmount: 5
   numberOfFriends: 4
   pizzasPerRestaurant: 1
   numberOfRestaurants: 10
@@ -579,6 +579,19 @@ MonoBehaviour:
   - {fileID: 1902222619304430, guid: acf4f655348f7c1459cd1d91ccfba605, type: 2}
   - {fileID: 1802320831408352, guid: 7959fb5dd2f0e364b85a14561a982eee, type: 2}
   - {fileID: 1192006250653276, guid: 00298cf51dcb31b48a03a6ac56e6af24, type: 2}
+  ingredientTextures:
+  - {fileID: 2800000, guid: 6b0599d581ee9544b956f9c90ce91456, type: 3}
+  - {fileID: 2800000, guid: a38b253418b893143ac97b892cedebd5, type: 3}
+  - {fileID: 2800000, guid: 6de1c35b05720e24a9345ce3c9a32d6a, type: 3}
+  - {fileID: 2800000, guid: 8cf61287459e0174b90db984df4dc19a, type: 3}
+  - {fileID: 2800000, guid: 30526be82017f09438e522ba98811389, type: 3}
+  - {fileID: 2800000, guid: 223fff011b97ef743935d6a88b647bcd, type: 3}
+  - {fileID: 2800000, guid: f37c6cd18a98c7044860fa9260a441e5, type: 3}
+  - {fileID: 2800000, guid: 967157502b7d81e40bea290a8ab763ef, type: 3}
+  - {fileID: 2800000, guid: 2741be0f2f084ff439ff2b4ff482cade, type: 3}
+  - {fileID: 2800000, guid: b14307ef15f1b9540bfdcc9355c3ee4a, type: 3}
+  - {fileID: 2800000, guid: 7c05149c82d4b16478238fd8426da9ad, type: 3}
+  - {fileID: 2800000, guid: b4d5f29f0252b6d4183714bafd951cc3, type: 3}
 --- !u!4 &1772508997
 Transform:
   m_ObjectHideFlags: 0

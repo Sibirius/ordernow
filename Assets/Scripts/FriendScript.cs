@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class FriendScript : MonoBehaviour {
 
     private Rigidbody rigidbody;
+    private Friend friend;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +17,14 @@ public class FriendScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		
+	
 	}
+
+    public void setFriend(Friend friend)
+    {
+        this.friend = friend;
+        GetComponentInChildren<FriendOverlay>().setFriend(friend);
+    }
 
     void jump()
     {
