@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772508997}
   - component: {fileID: 1772508996}
+  - component: {fileID: 1772508998}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -502,11 +503,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644e90f516cf848ffa790a83683085df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restaurantButton: {fileID: 1661788328355070, guid: fbeab38ba9d8141f68ee4c95888b4cb7,
-    type: 2}
-  restaurantButtonsContainer: {fileID: 987110122}
-  profilePage: {fileID: 1661048744536616, guid: 0a4769bdd194846d9ba0147a8099eb15,
-    type: 2}
+  failTimer: 5
+  failAmount: 1
+  pizzasPerRestaurant: 1
+  numberOfRestaurants: 10
+  satisfiedBonus: 5
+  dissatisfiedMalus: 5
+  friendPrefab: {fileID: 0}
 --- !u!4 &1772508997
 Transform:
   m_ObjectHideFlags: 0
@@ -520,6 +523,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1772508998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1772508995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3165d8d14f058af499265787053c35c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restaurantButton: {fileID: 1661788328355070, guid: fbeab38ba9d8141f68ee4c95888b4cb7,
+    type: 2}
+  restaurantButtonsContainer: {fileID: 987110122}
+  profilePage: {fileID: 1661048744536616, guid: 0a4769bdd194846d9ba0147a8099eb15,
+    type: 2}
+  friendPrefab: {fileID: 0}
 --- !u!1 &1792520710
 GameObject:
   m_ObjectHideFlags: 0

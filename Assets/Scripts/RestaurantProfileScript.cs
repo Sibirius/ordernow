@@ -10,12 +10,17 @@ public class RestaurantProfileScript : MonoBehaviour {
 	private Text restaurantNameLabel;
 	private Text restaurantDescriptionLabel;
 
-	// Use this for initialization
-	void Start () {
-		Text[] labels = GetComponentsInChildren<Text> ();
+    private void Awake()
+    {
+        Text[] labels = GetComponentsInChildren<Text>();
 
-		restaurantNameLabel = labels [1];
-		restaurantDescriptionLabel = labels [2];
+        restaurantNameLabel = labels[1];
+        restaurantDescriptionLabel = labels[2];
+    }
+
+    // Use this for initialization
+    void Start () {
+		
 	}
 	
 	// Update is called once per frame
@@ -31,7 +36,7 @@ public class RestaurantProfileScript : MonoBehaviour {
     }
 
     public void OrderButtonPressed() {
-		
+        Utils.getGameManager().OrderAtRestaurant(this.restaurant);
 	}
 
 	public void BackButtonPressed() {

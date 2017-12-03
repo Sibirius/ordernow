@@ -22,7 +22,7 @@ public class RestaurantButtonScript : MonoBehaviour {
 	}
 
 	public void Clicked () {
-        AppScript.instance.showProfile(restaurant);
+        Utils.getPhoneManager().showProfile(restaurant);
 	}
 
 	public void SetRestaurant(Restaurant restaurant) {
