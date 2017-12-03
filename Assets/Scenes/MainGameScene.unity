@@ -564,7 +564,7 @@ MonoBehaviour:
   failTimer: 1
   failAmount: 5
   numberOfFriends: 4
-  pizzasPerRestaurant: 1
+  pizzasPerRestaurant: 5
   numberOfRestaurants: 10
   satisfiedBonus: 5
   dissatisfiedMalus: 5
@@ -621,6 +621,7 @@ MonoBehaviour:
   restaurantButtonsContainer: {fileID: 987110122}
   profilePage: {fileID: 1661048744536616, guid: 0a4769bdd194846d9ba0147a8099eb15,
     type: 2}
+  pizzaEntry: {fileID: 1405927416710190, guid: 99239caac76717b428a9feefdd962499, type: 2}
 --- !u!1 &1792520710
 GameObject:
   m_ObjectHideFlags: 0

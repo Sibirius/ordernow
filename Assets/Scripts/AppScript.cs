@@ -6,7 +6,8 @@ public class AppScript : MonoBehaviour {
 
     private static string[] restaurantNames =
     {
-        "Marios", "Luigis", "Warios", "WaLuigis"
+        "Trinominos", "Momma Johanna", "Pizza Fedora", "Warios", "Pizza can Dough", "Grate Pizza", "Pizza of the Yeast", "The last of Crust", "All you knead is Love",
+        "Crust in time", "Jesus Crust", "R.I.Pizza", "Crusthead", "Just Pizza"
     };
 
     private Restaurant[] restaurants;
@@ -82,15 +83,28 @@ public class AppScript : MonoBehaviour {
     private List<Pizza> createPizzas()
     {
         List<Pizza> pizzas = new List<Pizza>();
-        pizzas.Add(createPizza("Pizza Spinach", "pizza_spinach", new List<string> { "spinach" }));
         pizzas.Add(createPizza("Pizza Peperoni", "pizza_peperoni", new List<string> { "peperoni" }));
+        pizzas.Add(createPizza("Pizza Funghi", "pizza_mushroom", new List<string> { "mushroom" }));
+        pizzas.Add(createPizza("Pizza Spinaci", "pizza_spinach", new List<string> { "spinach" }));
+        pizzas.Add(createPizza("Pizza Pollo", "pizza_chicken", new List<string> { "chicken" }));
+        pizzas.Add(createPizza("Pizza Tuna", "pizza_fish", new List<string> { "fish" }));
+        pizzas.Add(createPizza("Pizza Porco", "pizza_pork", new List<string> { "pork" }));
+        pizzas.Add(createPizza("Pizza Beef", "pizza_beef", new List<string> { "beef" }));
+        pizzas.Add(createPizza("Pizza Gorgonzola", "pizza_cheese", new List<string> { "cheese" }));
+        pizzas.Add(createPizza("Pizza Pineapple", "pizza_pineapple", new List<string> { "pineapple" }));
+        pizzas.Add(createPizza("Pizza Uranus", "pizza_planet", new List<string> { "planet" }));
+        pizzas.Add(createPizza("Pizza Cookies", "pizza_cookie", new List<string> { "cookie" }));
+        pizzas.Add(createPizza("Pizza Star Wars", "pizza_star", new List<string> { "star" }));
+        pizzas.Add(createPizza("Pizza German Sausage", "pizza_sausage", new List<string> { "sausage" }));
+        pizzas.Add(createPizza("Pizza Magicka", "pizza_magic", new List<string> { "magic" }));
+
 
         return pizzas;
     }
 
     private Pizza createPizza(string name, string textureName, List<string> ingredientNames)
     {
-        Pizza pizza = new Pizza("name");
+        Pizza pizza = new Pizza(name);
         pizza.texture = Resources.Load(textureName) as Texture;
         foreach (Ingredient ingredient in ingredients)
         {
