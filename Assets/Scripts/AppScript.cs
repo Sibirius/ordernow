@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class AppScript : MonoBehaviour {
 
     private static string[] restaurantNames =
     {
-        "Trinominos", "Momma Johanna", "Pizza Fedora", "Warios", "Pizza can Dough", "Grate Pizza", "Pizza of the Yeast", "The last of Crust", "All you knead is Love",
-        "Crust in time", "Jesus Crust", "R.I.Pizza", "Crusthead", "Just Pizza"
+        "Triominos", "Momma Johanna", "Pizza Fedora", "Wario's", "Pizza Can Dough", "Grate Pizza", "The Last of Crust", "Jesus Crust", "R.I.Pizza"
     };
 
     private Restaurant[] restaurants;
@@ -24,6 +25,8 @@ public class AppScript : MonoBehaviour {
     public int satisfiedBonus;
     public int dissatisfiedMalus;
 
+    public GameObject friendOverlay;
+
     public GameObject[] friendPrefabs;
     public Texture[] ingredientTextures;
 
@@ -37,7 +40,13 @@ public class AppScript : MonoBehaviour {
 
         ingredients = createIngredients();
         pizzas = createPizzas();
-        friends = createFriends();
+
+        friends = new List<Friend>();
+        for (int i = 0; i < numberOfFriends; i++)
+        {
+            spawnFriend();
+        }
+
         restaurants = createRestaurantsForFriends(friends);
 
         phoneManager = GetComponent<PhoneManagerScript>();
@@ -83,19 +92,19 @@ public class AppScript : MonoBehaviour {
     private List<Pizza> createPizzas()
     {
         List<Pizza> pizzas = new List<Pizza>();
-        pizzas.Add(createPizza("Pizza Peperoni", "pizza_peperoni", new List<string> { "peperoni" }));
-        pizzas.Add(createPizza("Pizza Funghi", "pizza_mushroom", new List<string> { "mushroom" }));
-        pizzas.Add(createPizza("Pizza Spinaci", "pizza_spinach", new List<string> { "spinach" }));
-        pizzas.Add(createPizza("Pizza Pollo", "pizza_chicken", new List<string> { "chicken" }));
-        pizzas.Add(createPizza("Pizza Tuna", "pizza_fish", new List<string> { "fish" }));
-        pizzas.Add(createPizza("Pizza Porco", "pizza_pork", new List<string> { "pork" }));
-        pizzas.Add(createPizza("Pizza Beef", "pizza_beef", new List<string> { "beef" }));
-        pizzas.Add(createPizza("Pizza Gorgonzola", "pizza_cheese", new List<string> { "cheese" }));
-        pizzas.Add(createPizza("Pizza Pineapple", "pizza_pineapple", new List<string> { "pineapple" }));
+        pizzas.Add(createPizza("Wraperoni", "pizza_peperoni", new List<string> { "peperoni" }));
+        pizzas.Add(createPizza("Boring Pizza", "pizza_mushroom", new List<string> { "mushroom" }));
+        pizzas.Add(createPizza("Pizza Popeye", "pizza_spinach", new List<string> { "spinach" }));
+        pizzas.Add(createPizza("Pizza Pidgey", "pizza_chicken", new List<string> { "chicken" }));
+        pizzas.Add(createPizza("The Seaman", "pizza_fish", new List<string> { "fish" }));
+        pizzas.Add(createPizza("Baconator", "pizza_pork", new List<string> { "pork" }));
+        pizzas.Add(createPizza("Beef Bomber", "pizza_beef", new List<string> { "beef" }));
+        pizzas.Add(createPizza("Zola the Gorgon", "pizza_cheese", new List<string> { "cheese" }));
+        pizzas.Add(createPizza("Pineapple?!", "pizza_pineapple", new List<string> { "pineapple" }));
         pizzas.Add(createPizza("Pizza Uranus", "pizza_planet", new List<string> { "planet" }));
-        pizzas.Add(createPizza("Pizza Cookies", "pizza_cookie", new List<string> { "cookie" }));
-        pizzas.Add(createPizza("Pizza Star Wars", "pizza_star", new List<string> { "star" }));
-        pizzas.Add(createPizza("Pizza German Sausage", "pizza_sausage", new List<string> { "sausage" }));
+        pizzas.Add(createPizza("Cookie Clicker", "pizza_cookie", new List<string> { "cookie" }));
+        pizzas.Add(createPizza("Star Wars", "pizza_star", new List<string> { "star" }));
+        pizzas.Add(createPizza("Ze German", "pizza_sausage", new List<string> { "sausage" }));
         pizzas.Add(createPizza("Pizza Magicka", "pizza_magic", new List<string> { "magic" }));
 
 
@@ -105,7 +114,8 @@ public class AppScript : MonoBehaviour {
     private Pizza createPizza(string name, string textureName, List<string> ingredientNames)
     {
         Pizza pizza = new Pizza(name);
-        pizza.texture = Resources.Load(textureName) as Texture;
+        pizza.texture = Resources.Load<Texture2D>("Pizzas/"+textureName);
+        Debug.Log("texture " + pizza.texture);
         foreach (Ingredient ingredient in ingredients)
         {
             if (ingredientNames.Contains(ingredient.name))
@@ -116,23 +126,21 @@ public class AppScript : MonoBehaviour {
         return pizza;
     }
 
-    private List<Friend> createFriends()
+    private void spawnFriend()
     {
-        List<Friend> friends = new List<Friend>();
-        for (int i = 0; i < numberOfFriends; i++)
-        {
-            Vector3 position = new Vector3(Random.Range(-0.7f, 1.5f), 0.0f, Random.Range(-0.7f, -2.0f));
-            Quaternion rotation = Quaternion.Euler(0.0f, Random.Range(150.0f, 210.0f), 0.0f);
-            //GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
-            GameObject prefab = friendPrefabs[0];
-            GameObject gameObject = Instantiate(prefab, position, rotation);
-            Friend friend = new Friend();
-            friend.requirement = ingredients[Random.Range(0,ingredients.Count)];
-            gameObject.GetComponent<FriendScript>().setFriend(friend);
-            friends.Add(friend);
-        }
-        return friends;
-    } 
+        Vector3 position = new Vector3(Random.Range(-0.7f, 1.5f), 0.0f, Random.Range(-0.7f, -2.0f));
+        Quaternion rotation = Quaternion.Euler(0.0f, Random.Range(150.0f, 210.0f), 0.0f);
+        //GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
+        GameObject prefab = friendPrefabs[friends.Count];
+        GameObject gameObject = Instantiate(prefab, position, rotation);
+        GameObject overlay = Instantiate(friendOverlay, gameObject.transform);
+        overlay.GetComponentInChildren<Text>().text = prefab.name;
+        Friend friend = new Friend();
+        friend.requirement = ingredients[Random.Range(0, ingredients.Count)];
+        gameObject.GetComponent<FriendScript>().setFriend(friend);
+
+        friends.Add(friend);
+    }
 
     private Restaurant[] createRestaurantsForFriends(List<Friend> friends)
     {
@@ -167,13 +175,15 @@ public class AppScript : MonoBehaviour {
             }
             if (satisfied)
             {
-                friend.satisfaction += satisfiedBonus;
+                alterFriendSatisfaction(friend, satisfiedBonus);
             }
             else
             {
-                friend.satisfaction -= dissatisfiedMalus;
+                alterFriendSatisfaction(friend, -dissatisfiedMalus);
             }
         }
+
+        spawnFriend();
 
 	}
 

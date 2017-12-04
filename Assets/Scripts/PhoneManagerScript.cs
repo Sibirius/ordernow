@@ -32,6 +32,9 @@ public class PhoneManagerScript : MonoBehaviour {
             Debug.Log("Pizza" + pizza.name);
             GameObject entry = Instantiate(pizzaEntry, GameObject.Find("PizzaList").transform);
             entry.GetComponentInChildren<Text>().text = pizza.name;
+            RawImage[] images = entry.GetComponentsInChildren<RawImage>();
+            images[0].texture = pizza.texture;
+            images[1].texture = pizza.ingredients[0].texture;
         }
 
     }

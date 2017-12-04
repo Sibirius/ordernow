@@ -22,6 +22,7 @@ public class RestaurantButtonScript : MonoBehaviour {
 	}
 
 	public void Clicked () {
+        GetComponent<AudioSource>().Play();
         Utils.getPhoneManager().showProfile(restaurant);
 	}
 

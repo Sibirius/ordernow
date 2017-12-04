@@ -12,7 +12,7 @@ public class FriendScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
-        InvokeRepeating("jump", 1.0f, 1.0f);
+        InvokeRepeating("jump", Random.Range(0.2f, 1.0f), Random.Range(0.8f, 1.2f));
 	}
 	
 	// Update is called once per frame
@@ -28,8 +28,9 @@ public class FriendScript : MonoBehaviour {
 
     void jump()
     {
-        Vector3 direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(0.0f, 3.0f), Random.Range(-1.0f, 1.0f));
+        Vector3 direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(2.0f, 8.0f), Random.Range(-1.0f, 1.0f));
         float force = 1000.0f;
         rigidbody.AddForce(force * direction);
+        GetComponent<AudioSource>().Play();
     }
 }

@@ -32,10 +32,12 @@ public class RestaurantProfileScript : MonoBehaviour {
     }
 
     public void OrderButtonPressed() {
+        GetComponents<AudioSource>()[0].Play();
         Utils.getGameManager().OrderAtRestaurant(this.restaurant);
 	}
 
 	public void BackButtonPressed() {
+        GetComponents<AudioSource>()[1].Play();
         Destroy(gameObject);
 	}
 }

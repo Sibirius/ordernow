@@ -12,6 +12,8 @@ public class FriendOverlay : MonoBehaviour {
 
     private Friend friend;
 
+    private bool alarmPlayed = false;
+
 
     // Use this for initialization
     void Start () {
@@ -34,14 +36,21 @@ public class FriendOverlay : MonoBehaviour {
 
             if (friend.satisfaction < 20)
             {
+                if (!alarmPlayed)
+                {
+                    GetComponent<AudioSource>().Play();
+                    alarmPlayed = true;
+                }
                 satisfactionMeter.GetComponent<Image>().color = new Color(0.7f, 0, 0);
             }
             else if (friend.satisfaction < 60)
             {
+                alarmPlayed = false;
                 satisfactionMeter.GetComponent<Image>().color = new Color(0.7f, 0.7f, 0);
             }
             else
             {
+                alarmPlayed = false;
                 satisfactionMeter.GetComponent<Image>().color = new Color(0, 0.7f, 0);
 
             }
