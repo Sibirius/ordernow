@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class AppScript : MonoBehaviour {
@@ -11,9 +12,15 @@ public class AppScript : MonoBehaviour {
         "Triominos", "Momma Johanna", "Pizza Fedora", "Wario's", "Pizza Can Dough", "Grate Pizza", "The Last of Crust", "Jesus Crust", "R.I.Pizza"
     };
 
-    private Restaurant[] restaurants;
+    private int currentLevel;
+
+    private List<string> availableRestaurantNames;
+    private List<Ingredient> availableRequirements;
+
+    private List<Restaurant> restaurants;
 
     private List<Friend> friends;
+    private List<GameObject> friendObjects;
 
     public float failTimer;
     public int failAmount;
@@ -38,19 +45,32 @@ public class AppScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        currentLevel = 0;
+        phoneManager = GetComponent<PhoneManagerScript>();
+
+        List<GameObject> shuffled = Utils.shuffleList(new List<GameObject>(friendPrefabs));
+        friendPrefabs = shuffled.ToArray();
+
         ingredients = createIngredients();
+
+        availableRestaurantNames = new List<string>(restaurantNames);
+        availableRequirements = new List<Ingredient>(ingredients);
+
         pizzas = createPizzas();
 
+        friendObjects = new List<GameObject>();
         friends = new List<Friend>();
         for (int i = 0; i < numberOfFriends; i++)
         {
             spawnFriend();
         }
 
-        restaurants = createRestaurantsForFriends(friends);
+        restaurants = new List<Restaurant>();
+        for (int i = 0; i < numberOfRestaurants; i++)
+        {
+            createRestaurant();
+        }
 
-        phoneManager = GetComponent<PhoneManagerScript>();
-        phoneManager.showRestaurants(restaurants);
 
         InvokeRepeating("ReduceFriendSatisfaction", failTimer, failTimer);
 	}
@@ -72,7 +92,7 @@ public class AppScript : MonoBehaviour {
     {
         friend.satisfaction = Mathf.Clamp(friend.satisfaction + change, 0, 100);
         if (friend.satisfaction == 0) {
-            //TODO lose the game
+            SceneManager.LoadScene("LoseScene");
         }
     }
 
@@ -128,43 +148,136 @@ public class AppScript : MonoBehaviour {
 
     private void spawnFriend()
     {
-        Vector3 position = new Vector3(Random.Range(-0.7f, 1.5f), 0.0f, Random.Range(-0.7f, -2.0f));
+        Vector3 position = new Vector3(Random.Range(-1.5f, 2.5f), 1.0f, Random.Range(-0.5f, -2.0f));
         Quaternion rotation = Quaternion.Euler(0.0f, Random.Range(150.0f, 210.0f), 0.0f);
-        //GameObject prefab = friendPrefabs[Random.Range(0, friendPrefabs.Length)];
         GameObject prefab = friendPrefabs[friends.Count];
         GameObject gameObject = Instantiate(prefab, position, rotation);
         GameObject overlay = Instantiate(friendOverlay, gameObject.transform);
         overlay.GetComponentInChildren<Text>().text = prefab.name;
         Friend friend = new Friend();
-        friend.requirement = ingredients[Random.Range(0, ingredients.Count)];
+
+        friend.requirement = availableRequirements[Random.Range(0, availableRequirements.Count)];
+        availableRequirements.Remove(friend.requirement);
         gameObject.GetComponent<FriendScript>().setFriend(friend);
 
+        friendObjects.Add(gameObject);
         friends.Add(friend);
     }
 
-    private Restaurant[] createRestaurantsForFriends(List<Friend> friends)
+    private List<Pizza> neededPizzas()
     {
-        List<Restaurant> restaurants = new List<Restaurant>();
-        for (int i = 0; i < numberOfRestaurants; i++)
-        {
-            List<Pizza> pizzas = new List<Pizza>();
-            for (int p = 0; p < pizzasPerRestaurant; p++)
-            {
-                Pizza pizza = this.pizzas[Random.Range(0,this.pizzas.Count)];
-                pizzas.Add(pizza);
-            }
-            string name = restaurantNames[Random.Range(0, restaurantNames.Length)];
-            Restaurant restaurant = new Restaurant(name, pizzas);
-            restaurants.Add(restaurant);
-        }
-
-        return restaurants.ToArray();
-    }
-
-	public void OrderAtRestaurant(Restaurant restaurant) {
-
+        List<Ingredient> needed = new List<Ingredient>();
         foreach (Friend friend in friends)
         {
+            needed.Add(friend.requirement);
+        }
+
+        foreach (Restaurant rest in restaurants)
+        {
+            foreach (Pizza pizza in rest.pizzas)
+            {
+                needed.Remove(pizza.ingredients[0]);
+            }
+        }
+
+        List<Pizza> neededPizzas = new List<Pizza>();
+
+        foreach (Ingredient ing in needed) {
+            foreach (Pizza pizza in pizzas)
+            {
+                if (pizza.ingredients.Contains(ing))
+                {
+                    neededPizzas.Add(pizza);
+                }
+            }
+        }
+        return neededPizzas;
+        
+
+    }
+
+    private void createRestaurant()
+    {
+        List<Pizza> pizzas = neededPizzas();
+        int randomCount = friends.Count - pizzas.Count;
+        for (int p = 0; p < randomCount; p++)
+        {
+            int pizzaStart = Random.Range(0, this.pizzas.Count);
+            for (int offset = 0; offset < this.pizzas.Count; offset++)
+            {
+                Pizza pizza = this.pizzas[pizzaStart + offset];
+                if (!pizzas.Contains(pizza))
+                {
+                    pizzas.Add(pizza);
+                    break;
+                }
+            }
+        }
+        string name = availableRestaurantNames[Random.Range(0, availableRestaurantNames.Count)];
+        availableRestaurantNames.Remove(name);
+        Restaurant restaurant = new Restaurant(name, pizzas);
+        restaurants.Add(restaurant);
+        phoneManager.addRestaurant(restaurant);
+    }
+
+    private void extendMenus()
+    {
+
+        var shuffled = Utils.shuffleList<Restaurant>(restaurants);
+
+        foreach (Restaurant restaurant in shuffled)
+        {
+            if (neededPizzas().Count > 0)
+            {
+                restaurant.pizzas.Add(neededPizzas()[0]);
+            }
+            else
+            {
+                int pizzaStart = Random.Range(0, this.pizzas.Count);
+                for (int offset = 0; offset < this.pizzas.Count; offset++)
+                {
+                    Pizza pizza = this.pizzas[pizzaStart + offset];
+                    if (!restaurant.pizzas.Contains(pizza))
+                    {
+                        restaurant.pizzas.Add(pizza);
+                        break;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    private void nextLevel()
+    {
+        if (currentLevel >= 12)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
+
+        int levelState = (currentLevel % 3);
+        switch (levelState)
+        {
+            case 0:
+                spawnFriend();
+                break;
+            case 1:
+                extendMenus();
+                break;
+            case 2:
+                createRestaurant();
+                break;
+        }
+        currentLevel++;
+    }
+
+
+
+    public void OrderAtRestaurant(Restaurant restaurant) {
+
+        foreach (GameObject friendObject in friendObjects)
+        {
+            Friend friend = friendObject.GetComponent<FriendScript>().friend;
             bool satisfied = false;
             foreach (Pizza pizza in restaurant.pizzas)
             {
@@ -175,15 +288,21 @@ public class AppScript : MonoBehaviour {
             }
             if (satisfied)
             {
+                var main = friendObject.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.green;
+                friendObject.GetComponent<ParticleSystem>().Play();
                 alterFriendSatisfaction(friend, satisfiedBonus);
             }
             else
             {
+                var main = friendObject.GetComponent<ParticleSystem>().main;
+                main.startColor = Color.red;
+                friendObject.GetComponent<ParticleSystem>().Play();
                 alterFriendSatisfaction(friend, -dissatisfiedMalus);
             }
         }
 
-        spawnFriend();
+        nextLevel();
 
 	}
 
@@ -239,6 +358,13 @@ public class Ingredient
 
 public class Utils
 {
+
+    public static List<T> shuffleList<T>(List<T> source)
+    {
+        var shuffled = new List<T>(source);
+        shuffled.Sort((a, b) => 1 - 2 * Random.Range(0, 1));
+        return shuffled;
+    }
 
     public static AppScript getGameManager()
     {

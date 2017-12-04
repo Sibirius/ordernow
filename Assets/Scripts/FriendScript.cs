@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FriendScript : MonoBehaviour {
 
     private Rigidbody rigidbody;
-    private Friend friend;
+    public Friend friend;
 
 
 	// Use this for initialization

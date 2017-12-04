@@ -32,7 +32,7 @@ public class FriendOverlay : MonoBehaviour {
         transform.rotation = Quaternion.LookRotation(transform.position - cameraTransform.position);
         if (friend != null && satisfactionMeter != null)
         {
-            satisfactionMeter.sizeDelta = new Vector2(50, friend.satisfaction * 4);
+            satisfactionMeter.sizeDelta = new Vector2(friend.satisfaction * 4, 50);
 
             if (friend.satisfaction < 20)
             {

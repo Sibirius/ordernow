@@ -12,6 +12,8 @@ ModelImporter:
     100008: Cube_4
     100010: Cube_5
     100012: Cube_6
+    100014: Cube_6_2
+    100016: Cube_6_3
     400000: //RootNode
     400002: Cube_1
     400004: Cube_2
@@ -19,6 +21,8 @@ ModelImporter:
     400008: Cube_4
     400010: Cube_5
     400012: Cube_6
+    400014: Cube_6_2
+    400016: Cube_6_3
     2300000: //RootNode
     2300002: Cube_1
     2300004: Cube_2
@@ -26,6 +30,8 @@ ModelImporter:
     2300008: Cube_4
     2300010: Cube_5
     2300012: Cube_6
+    2300014: Cube_6_2
+    2300016: Cube_6_3
     3300000: //RootNode
     3300002: Cube_1
     3300004: Cube_2
@@ -33,6 +39,8 @@ ModelImporter:
     3300008: Cube_4
     3300010: Cube_5
     3300012: Cube_6
+    3300014: Cube_6_2
+    3300016: Cube_6_3
     4300000: Cube
     4300002: Cube_3
     4300004: Cube_1
@@ -40,8 +48,30 @@ ModelImporter:
     4300008: Cube_4
     4300010: Cube_5
     4300012: Cube_6
+    4300014: Cube_6_2
+    4300016: Cube_6_3
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CHZBody
+    second: {fileID: 2100000, guid: f32e169db9ef11141a0525002586f795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CMZBand
+    second: {fileID: 2100000, guid: 73b39087162b52d4d9be76b83add6a8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CMZEeyes
+    second: {fileID: 2100000, guid: 2dca45ff16b8b5c43b7625860816af05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CMZHair
+    second: {fileID: 2100000, guid: d4d92ba90628dcc49b569df2ed88f7e2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

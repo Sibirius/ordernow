@@ -1,0 +1,657 @@
+fileFormatVersion: 2
+guid: 71de7cdd93d15fe4e8fa85e86295115e
+timeCreated: 1512403711
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 12_Tasch10
+    100002: 12_Tasch11
+    100004: 12_Tasch12
+    100006: 12_Tasch13
+    100008: 12_Tasch14
+    100010: 12_Tasch15
+    100012: 12_Tasch16
+    100014: 12_Tasch17
+    100016: 12_Tasch18
+    100018: 12_Tasch19
+    100020: 12_Tasch20
+    100022: 12_Tasch21
+    100024: 12_Tasch22
+    100026: 12_Tasch23
+    100028: 12_Tasch24
+    100030: 12_Tasche0
+    100032: 12_Tasche1
+    100034: 12_Tasche2
+    100036: 12_Tasche3
+    100038: 12_Tasche4
+    100040: 12_Tasche5
+    100042: 12_Tasche6
+    100044: 12_Tasche7
+    100046: 12_Tasche8
+    100048: 12_Tasche9
+    100050: 12_Taschen
+    100052: Background
+    100054: Bend
+    100056: Box022
+    100058: Box147
+    100060: Box148
+    100062: Box149
+    100064: Box152
+    100066: Box154
+    100068: Box155
+    100070: Box156
+    100072: Box157
+    100074: ChamferBo0
+    100076: ChamferBo0_2
+    100078: ChamferBo1
+    100080: ChamferBo1_2
+    100082: ChamferBo2
+    100084: ChamferBo2_2
+    100086: ChamferBo3
+    100088: ChamferBo4
+    100090: ChamferBo5
+    100092: ChamferBo6
+    100094: ChamferBox
+    100096: ChamferBox_2
+    100098: Cube
+    100100: Cube_1
+    100102: Cube_2
+    100104: Cube_3
+    100106: Cube_4
+    100108: Cylinder27
+    100110: Floor
+    100112: Group01
+    100114: Group03
+    100116: Group864
+    100118: komod_polk
+    100120: Lamp_01
+    100122: Line02
+    100124: Null
+    100126: obj_01
+    100128: obj_02
+    100130: obj_03
+    100132: obj_04
+    100134: obj_05
+    100136: obj_06
+    100138: obj_07
+    100140: obj_08
+    100142: obj_09
+    100144: obj_10
+    100146: obj_11
+    100148: obj_12
+    100150: obj_13
+    100152: obj_15
+    100154: Plane32
+    100156: Plane33
+    100158: Plane34
+    100160: Plane36
+    100162: //RootNode
+    100164: Rectangle3
+    100166: Sphere001
+    100168: StolikCup0
+    100170: Subdivision_Surface
+    100172: VRayLight0
+    100174: "\xEA\xED\xE8\xE3\xE8_4"
+    100176: "\xEA\xED\xE8\xE3\xE8_4_2"
+    400000: 12_Tasch10
+    400002: 12_Tasch11
+    400004: 12_Tasch12
+    400006: 12_Tasch13
+    400008: 12_Tasch14
+    400010: 12_Tasch15
+    400012: 12_Tasch16
+    400014: 12_Tasch17
+    400016: 12_Tasch18
+    400018: 12_Tasch19
+    400020: 12_Tasch20
+    400022: 12_Tasch21
+    400024: 12_Tasch22
+    400026: 12_Tasch23
+    400028: 12_Tasch24
+    400030: 12_Tasche0
+    400032: 12_Tasche1
+    400034: 12_Tasche2
+    400036: 12_Tasche3
+    400038: 12_Tasche4
+    400040: 12_Tasche5
+    400042: 12_Tasche6
+    400044: 12_Tasche7
+    400046: 12_Tasche8
+    400048: 12_Tasche9
+    400050: 12_Taschen
+    400052: Background
+    400054: Bend
+    400056: Box022
+    400058: Box147
+    400060: Box148
+    400062: Box149
+    400064: Box152
+    400066: Box154
+    400068: Box155
+    400070: Box156
+    400072: Box157
+    400074: ChamferBo0
+    400076: ChamferBo0_2
+    400078: ChamferBo1
+    400080: ChamferBo1_2
+    400082: ChamferBo2
+    400084: ChamferBo2_2
+    400086: ChamferBo3
+    400088: ChamferBo4
+    400090: ChamferBo5
+    400092: ChamferBo6
+    400094: ChamferBox
+    400096: ChamferBox_2
+    400098: Cube
+    400100: Cube_1
+    400102: Cube_2
+    400104: Cube_3
+    400106: Cube_4
+    400108: Cylinder27
+    400110: Floor
+    400112: Group01
+    400114: Group03
+    400116: Group864
+    400118: komod_polk
+    400120: Lamp_01
+    400122: Line02
+    400124: Null
+    400126: obj_01
+    400128: obj_02
+    400130: obj_03
+    400132: obj_04
+    400134: obj_05
+    400136: obj_06
+    400138: obj_07
+    400140: obj_08
+    400142: obj_09
+    400144: obj_10
+    400146: obj_11
+    400148: obj_12
+    400150: obj_13
+    400152: obj_15
+    400154: Plane32
+    400156: Plane33
+    400158: Plane34
+    400160: Plane36
+    400162: //RootNode
+    400164: Rectangle3
+    400166: Sphere001
+    400168: StolikCup0
+    400170: Subdivision_Surface
+    400172: VRayLight0
+    400174: "\xEA\xED\xE8\xE3\xE8_4"
+    400176: "\xEA\xED\xE8\xE3\xE8_4_2"
+    2300000: 12_Tasch10
+    2300002: 12_Tasch11
+    2300004: 12_Tasch12
+    2300006: 12_Tasch13
+    2300008: 12_Tasch14
+    2300010: 12_Tasch15
+    2300012: 12_Tasch16
+    2300014: 12_Tasch17
+    2300016: 12_Tasch18
+    2300018: 12_Tasch19
+    2300020: 12_Tasch20
+    2300022: 12_Tasch21
+    2300024: 12_Tasch22
+    2300026: 12_Tasch23
+    2300028: 12_Tasch24
+    2300030: 12_Tasche0
+    2300032: 12_Tasche1
+    2300034: 12_Tasche2
+    2300036: 12_Tasche3
+    2300038: 12_Tasche4
+    2300040: 12_Tasche5
+    2300042: 12_Tasche6
+    2300044: 12_Tasche7
+    2300046: 12_Tasche8
+    2300048: 12_Tasche9
+    2300050: Box022
+    2300052: Box147
+    2300054: Box148
+    2300056: Box149
+    2300058: Box152
+    2300060: Box154
+    2300062: Box155
+    2300064: Box156
+    2300066: Box157
+    2300068: ChamferBo0
+    2300070: ChamferBo0_2
+    2300072: ChamferBo1
+    2300074: ChamferBo1_2
+    2300076: ChamferBo2
+    2300078: ChamferBo2_2
+    2300080: ChamferBo3
+    2300082: ChamferBo4
+    2300084: ChamferBo5
+    2300086: ChamferBo6
+    2300088: ChamferBox
+    2300090: ChamferBox_2
+    2300092: Cube
+    2300094: Cube_1
+    2300096: Cube_2
+    2300098: Cube_3
+    2300100: Cube_4
+    2300102: Cylinder27
+    2300104: Line02
+    2300106: obj_01
+    2300108: obj_02
+    2300110: obj_03
+    2300112: obj_04
+    2300114: obj_05
+    2300116: obj_06
+    2300118: obj_07
+    2300120: obj_08
+    2300122: obj_09
+    2300124: obj_10
+    2300126: obj_11
+    2300128: obj_12
+    2300130: obj_13
+    2300132: obj_15
+    2300134: Plane32
+    2300136: Plane33
+    2300138: Plane34
+    2300140: Plane36
+    2300142: Rectangle3
+    2300144: Sphere001
+    2300146: StolikCup0
+    2300148: "\xEA\xED\xE8\xE3\xE8_4"
+    2300150: "\xEA\xED\xE8\xE3\xE8_4_2"
+    3300000: 12_Tasch10
+    3300002: 12_Tasch11
+    3300004: 12_Tasch12
+    3300006: 12_Tasch13
+    3300008: 12_Tasch14
+    3300010: 12_Tasch15
+    3300012: 12_Tasch16
+    3300014: 12_Tasch17
+    3300016: 12_Tasch18
+    3300018: 12_Tasch19
+    3300020: 12_Tasch20
+    3300022: 12_Tasch21
+    3300024: 12_Tasch22
+    3300026: 12_Tasch23
+    3300028: 12_Tasch24
+    3300030: 12_Tasche0
+    3300032: 12_Tasche1
+    3300034: 12_Tasche2
+    3300036: 12_Tasche3
+    3300038: 12_Tasche4
+    3300040: 12_Tasche5
+    3300042: 12_Tasche6
+    3300044: 12_Tasche7
+    3300046: 12_Tasche8
+    3300048: 12_Tasche9
+    3300050: Box022
+    3300052: Box147
+    3300054: Box148
+    3300056: Box149
+    3300058: Box152
+    3300060: Box154
+    3300062: Box155
+    3300064: Box156
+    3300066: Box157
+    3300068: ChamferBo0
+    3300070: ChamferBo0_2
+    3300072: ChamferBo1
+    3300074: ChamferBo1_2
+    3300076: ChamferBo2
+    3300078: ChamferBo2_2
+    3300080: ChamferBo3
+    3300082: ChamferBo4
+    3300084: ChamferBo5
+    3300086: ChamferBo6
+    3300088: ChamferBox
+    3300090: ChamferBox_2
+    3300092: Cube
+    3300094: Cube_1
+    3300096: Cube_2
+    3300098: Cube_3
+    3300100: Cube_4
+    3300102: Cylinder27
+    3300104: Line02
+    3300106: obj_01
+    3300108: obj_02
+    3300110: obj_03
+    3300112: obj_04
+    3300114: obj_05
+    3300116: obj_06
+    3300118: obj_07
+    3300120: obj_08
+    3300122: obj_09
+    3300124: obj_10
+    3300126: obj_11
+    3300128: obj_12
+    3300130: obj_13
+    3300132: obj_15
+    3300134: Plane32
+    3300136: Plane33
+    3300138: Plane34
+    3300140: Plane36
+    3300142: Rectangle3
+    3300144: Sphere001
+    3300146: StolikCup0
+    3300148: "\xEA\xED\xE8\xE3\xE8_4"
+    3300150: "\xEA\xED\xE8\xE3\xE8_4_2"
+    4300000: Cube_4
+    4300002: Cube_3
+    4300004: Cube_2
+    4300006: 12_Tasch24
+    4300008: 12_Tasch23
+    4300010: 12_Tasch22
+    4300012: 12_Tasch21
+    4300014: 12_Tasch20
+    4300016: 12_Tasch19
+    4300018: 12_Tasch18
+    4300020: 12_Tasch17
+    4300022: 12_Tasch16
+    4300024: 12_Tasch15
+    4300026: 12_Tasch14
+    4300028: 12_Tasch13
+    4300030: 12_Tasch12
+    4300032: 12_Tasch11
+    4300034: 12_Tasch10
+    4300036: 12_Tasche9
+    4300038: 12_Tasche8
+    4300040: 12_Tasche7
+    4300042: 12_Tasche6
+    4300044: 12_Tasche5
+    4300046: 12_Tasche4
+    4300048: 12_Tasche3
+    4300050: 12_Tasche2
+    4300052: 12_Tasche1
+    4300054: 12_Tasche0
+    4300056: "\xEA\xED\xE8\xE3\xE8_4"
+    4300058: "\xEA\xED\xE8\xE3\xE8_4_2"
+    4300060: Cube_1
+    4300062: Cube
+    4300064: Line02
+    4300066: Box157
+    4300068: Box156
+    4300070: Box155
+    4300072: Box154
+    4300074: Box152
+    4300076: Box149
+    4300078: Box148
+    4300080: Box147
+    4300082: Plane34
+    4300084: ChamferBo2
+    4300086: Plane36
+    4300088: ChamferBo1
+    4300090: Plane33
+    4300092: Plane32
+    4300094: ChamferBo0
+    4300096: ChamferBox
+    4300098: StolikCup0
+    4300100: obj_01
+    4300102: obj_03
+    4300104: obj_08
+    4300106: obj_02
+    4300108: obj_11
+    4300110: obj_10
+    4300112: obj_09
+    4300114: obj_07
+    4300116: obj_06
+    4300118: obj_05
+    4300120: obj_04
+    4300122: obj_12
+    4300124: obj_13
+    4300126: obj_15
+    4300128: Sphere001
+    4300130: ChamferBo6
+    4300132: ChamferBo5
+    4300134: Cylinder27
+    4300136: ChamferBo4
+    4300138: ChamferBo3
+    4300140: ChamferBo2_2
+    4300142: ChamferBo1_2
+    4300144: ChamferBo0_2
+    4300146: ChamferBox_2
+    4300148: Box022
+    4300150: Rectangle3
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boden
+    second: {fileID: 2100000, guid: 250681b9a3b72794ab7f9b19c5104a12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodenRaum
+    second: {fileID: 2100000, guid: cbeda6641cee09a4783dc694939c27c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover 1
+    second: {fileID: 2100000, guid: 00f12880ca80b4646b9006fe5e428c77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holy
+    second: {fileID: 2100000, guid: 3e91de5d3f283604f839a795490e4157, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holz1
+    second: {fileID: 2100000, guid: 3e91de5d3f283604f839a795490e4157, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holzinlay
+    second: {fileID: 2100000, guid: 63dd5ed072220084c9b185aaf919257e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat
+    second: {fileID: 2100000, guid: 3e91de5d3f283604f839a795490e4157, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.1
+    second: {fileID: 2100000, guid: 63dd5ed072220084c9b185aaf919257e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.2
+    second: {fileID: 2100000, guid: d236ab0b78909f84d9f78cc0c8348744, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.3
+    second: {fileID: 2100000, guid: 71f9bcabf09963f4994460f102fa4de1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.5
+    second: {fileID: 2100000, guid: 93ebe3a60686a0641ac40d318b615ce9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #243'
+    second: {fileID: 2100000, guid: d4696333f1ec5db45ab46f49343407da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #269'
+    second: {fileID: 2100000, guid: 6068b4fa03ae9034cae390b966da9909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Material #30  \xF2\xEA"
+    second: {fileID: 2100000, guid: 2accb07553a96984fa97f65050f00c7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #325'
+    second: {fileID: 2100000, guid: 6a6defdd1aad37143be3fe9c7932521e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #326'
+    second: {fileID: 2100000, guid: ccd14f968fec0b54bb1f520ee879f0ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #327'
+    second: {fileID: 2100000, guid: 7e80aaab1a12b8f498932cc5968ceb2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #56'
+    second: {fileID: 2100000, guid: 63dd5ed072220084c9b185aaf919257e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #56.15'
+    second: {fileID: 2100000, guid: 63dd5ed072220084c9b185aaf919257e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #80'
+    second: {fileID: 2100000, guid: cc07574c089b18e4f96ee47deab9df91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #81'
+    second: {fileID: 2100000, guid: 6c86113eac20e8243a97e4ee28516aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #82'
+    second: {fileID: 2100000, guid: bc692ba6e7d1ed04891959d302d3e903, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #83'
+    second: {fileID: 2100000, guid: 813e24f3d96a30b4186d55090ca6dadd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #84'
+    second: {fileID: 2100000, guid: be5c5829b6eeb244c82362a4b2714e5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: c70ccdc8e9ab6284481123fc8f75add3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpet_06
+    second: {fileID: 2100000, guid: 65e032609fc43d148ad91e4e282a4f03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrome go
+    second: {fileID: 2100000, guid: 6ff234d7a9d33ec4c95ab9ab9fb1a130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: karkas
+    second: {fileID: 2100000, guid: fa08df59ead17e848a1829b5463e4fed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pages
+    second: {fileID: 2100000, guid: 330a469c5e97bc14786b9b5eeb442707, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: st wood
+    second: {fileID: 2100000, guid: 63dd5ed072220084c9b185aaf919257e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: 4184dc3891a28a3408db1529749112d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood liq
+    second: {fileID: 2100000, guid: c7872d8f003637f4b9fcf70cc9ea5dbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\xF1\xF2\xE5\xEA\xEB\xEE"
+    second: {fileID: 2100000, guid: d898db4b30211474991338251e61b510, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

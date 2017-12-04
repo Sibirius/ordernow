@@ -39,13 +39,12 @@ public class PhoneManagerScript : MonoBehaviour {
 
     }
 
-    public void showRestaurants(Restaurant[] restaurants)
+    public void addRestaurant(Restaurant restaurant)
     {
-        foreach (Restaurant restaurant in restaurants)
-        {
-            GameObject newButton = Instantiate(restaurantButton, restaurantButtonsContainer.transform);
-            RestaurantButtonScript newScript = newButton.GetComponent<RestaurantButtonScript>();
-            newScript.SetRestaurant(restaurant);
-        }
+
+        GameObject newButton = Instantiate(restaurantButton, restaurantButtonsContainer.transform);
+        RestaurantButtonScript newScript = newButton.GetComponent<RestaurantButtonScript>();
+        newScript.SetRestaurant(restaurant);
+        
     }
 }
